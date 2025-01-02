@@ -1,29 +1,25 @@
 <template>
-  <h1>Hi world.</h1>
-  <h2>{{ title }}</h2>
+  <h1>Stady vue</h1>
 
-  <button 
-    type="button" 
-    @dblclick="this,title = 'double click'"
-    @click="changeTitle()"
-  >Click on me!</button>
-  <button
-    @click="changeTitle(Math.random())"
+  <input 
+    type="text" 
+    placeholder="Name" 
+    @input="setName($event.target.value)"
   >
-    Random Title
-  </button>
+  <p>name: {{ name }}</p>
+  
 </template>
     
 <script>
 export default {
-  data: () => {
+  data() {
     return {
-      title: "my first app"
-    };
+      name:"init name"
+    }
   },
-  methods:{
-    changeTitle(newTitle = "My dafulte title."){
-      this.title = newTitle;
+  methods: {
+    setName(newName){
+      this.name = newName;
     }
   }
 }
