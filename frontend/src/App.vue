@@ -15,6 +15,14 @@
 
   <!-- <div>{{ users }}</div> -->
 
+  <div v-if="users.length === 0">
+    User list is empty
+  </div>
+
+  <div v-else-if="users.length !== 0">
+    User list is not empty
+  </div>
+
   <div v-for="(elm, index) in users" :key="index">
     <p>{{ elm.name }}</p>
   </div>
