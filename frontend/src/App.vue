@@ -19,10 +19,14 @@
     User list is empty
   </div>
 
-  <div v-else-if="users.length !== 0">
-    User list is not empty
+  <div v-else-if="users.length === 1">
+    User list has one element
   </div>
 
+  <div v-else>
+    User list has more than one element
+  </div>
+  
   <div v-for="(elm, index) in users" :key="index">
     <p>{{ elm.name }}</p>
   </div>
