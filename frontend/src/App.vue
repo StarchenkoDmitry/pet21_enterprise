@@ -35,9 +35,16 @@
     :deleteUser="deleteUser"
   />
 
+  <div>
+    <h2>Make a request</h2>
+    <button @click="getData">Make</button>
+    <p>Response: {{ responseData }}</p>
+  </div>
+
 </template>
     
 <script>
+import axios from "axios";
 import User from "./components/User.vue";
 
 export default {
@@ -45,7 +52,9 @@ export default {
   data() {
     return {
       users: [],
-      name:"Dimka"
+      name:"Dimka",
+
+      responseData: "",
     }
   },
   methods: {
@@ -59,6 +68,14 @@ export default {
     },
     deleteUser(index){
       this.users.splice(index,1);
+    },
+    getData(){
+      axios.get("http://127.0.0.1:3000/random",{
+        withCredentials: true
+      })
+      .then((response)=>{
+        this.responseData = response.data;
+      });
     }
   }
 }
