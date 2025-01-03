@@ -27,14 +27,21 @@
     User list has more than one element
   </div>
   
-  <div v-for="(elm, index) in users" :key="index">
-    <p>{{ elm.name }}</p>
-  </div>
+  <User 
+    v-for="(element, index) in users" 
+    :user="element"
+    :key="index"
+    :index="index"
+    :deleteUser="deleteUser"
+  />
 
 </template>
     
 <script>
+import User from "./components/User.vue";
+
 export default {
+  components: { User },
   data() {
     return {
       users: [],
@@ -49,6 +56,9 @@ export default {
       this.users.push({
         name: this.name
       });
+    },
+    deleteUser(index){
+      this.users.splice(index,1);
     }
   }
 }
