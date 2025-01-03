@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Name: {{ user.name }}</p>
+        <p>Name: {{ userName }}</p>
         <button @click="deleteUser(index)">Delete me</button>
     </div>
 </template>
@@ -19,6 +19,11 @@ export default {
         deleteUser:{
             type: Function,
             required: true
+        }
+    },
+    computed:{
+        userName(){
+            return `@${this.user.name}`;
         }
     }
 }
