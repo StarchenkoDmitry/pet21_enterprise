@@ -5,28 +5,24 @@
     </div>
 </template>
 
-<<script>
-export default {
-    props:{
-        user:{
-            type: Object,
-            required: true
-        },
-        index:{
-            type: Number,
-            required: true
-        },
-        deleteUser:{
-            type: Function,
-            required: true
-        }
+<<script setup>
+import { computed } from 'vue';
+
+const {user} = defineProps({
+    user: {
+        type: Object,
+        required: true   
     },
-    computed:{
-        userName(){
-            return `@${this.user.name}`;
-        }
+    index:{
+        type: Number,
+        required: true
+    },
+    deleteUser:{
+        type: Function,
+        required: true
     }
-}
+});
+const userName = computed(()=>`@${user.name}`);
 </script>
 
 <style>
