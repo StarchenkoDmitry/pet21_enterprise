@@ -5,7 +5,7 @@
     </div>
 </template>
 
-<<script setup>
+<script setup>
 import { computed } from 'vue';
 
 const {user} = defineProps({
