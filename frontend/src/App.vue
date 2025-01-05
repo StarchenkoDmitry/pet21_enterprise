@@ -68,6 +68,10 @@
     <template #[temp3]>
       <div>Transformer2000</div>
     </template>
+
+    <template #main="{var1}">
+      Bind var1: {{ var1 }}
+    </template>
   </Eat>
 
 </template>
