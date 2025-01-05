@@ -41,18 +41,49 @@
     <p>Response: {{ responseData }}</p>
   </div>
 
+
+  <Eat>
+    <!-- <div>Food</div> -->
+
+    <template v-slot>
+      <div>def</div>
+    </template>
+
+    <template v-slot:car="{carName}">
+      <div>
+        <h2>My car is {{ carName }}</h2>
+      </div>
+
+    </template>
+
+    <template #meat>
+      <div>Zeny</div>
+    </template>
+    <template #wood>
+      <div>ANANASs</div>
+    </template>
+    <!-- <template #[`${temp3}`]>
+      <div>Transformer2000</div>
+    </template> -->
+    <template #[temp3]>
+      <div>Transformer2000</div>
+    </template>
+  </Eat>
+
 </template>
     
 <script>
 import axios from "axios";
 import User from "./components/User.vue";
+import Eat from "./components/Eat.vue";
 
 export default {
-  components: { User },
+  components: { User, Eat },
   data() {
     return {
       users: [],
       name:"Dimka",
+      temp3: "robot",
 
       responseData: "",
     }
