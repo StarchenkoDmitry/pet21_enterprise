@@ -9,7 +9,8 @@
         <slot name="wood"></slot>
         <slot name="car" carName="Boogaty"></slot>
 
-        <slot name="main" v-bind="{var1:'myVar1'}"></slot>
+        <!-- <slot name="main" v-bind="{var1:'myVar1'}"></slot> -->
+        <slot name="main" v-bind="'MyVAAR1'"></slot>
     </div>
 </template>
 

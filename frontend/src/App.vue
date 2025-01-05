@@ -69,8 +69,9 @@
       <div>Transformer2000</div>
     </template>
 
-    <template #main="{var1}">
-      Bind var1: {{ var1 }}
+    <template #main="props">
+      <div>Bind var1: {{ props.var1 }}</div>
+      <div>props: {{ props }}</div>
     </template>
   </Eat>
 
