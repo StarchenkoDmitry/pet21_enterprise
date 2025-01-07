@@ -1,32 +1,14 @@
 <script setup>
-    import { onRenderTracked, onUpdated, ref } from 'vue';
-    import api from '@/api';
+import { inject, ref } from 'vue';
 
-    const cred = ref({email:"dimka@gmail.com",password:"1234"});
+const my = inject("myself");
 
-    const signUp = ()=>{
-        console.log("signUp");
-        api.post(`auth/signup`, cred.value)
-        .then(res => {
-            console.log("res:",res);
-        });
-    }
+const cred = ref({email:"dimka@gmail.com",password:"1234"});
 
-    onRenderTracked(()=>{
-        console.log("Renderer")
-    });
-
-    onUpdated(()=>{
-        console.log("Updated");
-        fetch("http://127.0.0.1:3000/")
-        .then(async (result)=>{
-            console.log(result);
-            return await result.text()
-            ;
-        }).then((res)=>{
-            console.log("res:",res);
-        })
-    });
+const signUp = ()=>{
+    console.log("signUp");
+    my.randName();
+}
 </script>
 
 <template>
@@ -40,6 +22,9 @@
             <input type="password" name="password" v-model="cred.password" placeholder="Password" required>
             <button type="submit">SignUp</button>
         </form>
+        <div>
+            MySelf: {{ my.name }}
+        </div>
     </div>
 </template>
 
