@@ -1,5 +1,6 @@
 <script setup>
 import SignUp from '@/components/auth/SignUp.vue';
+import Dashboard from '@/components/Dashboard.vue';
 import { provide, ref } from 'vue';
 
 const name = ref('dimulka');
@@ -27,6 +28,19 @@ console.log(ref1.value);
     <button @click="randName()">RandName</button>
     <div>
         <SignUp></SignUp>
+    </div>
+
+    <div>
+        <h2>Suspense</h2>
+        <Suspense>
+            <!-- компонент с вложенными асинхронными зависимостями -->
+            <Dashboard />
+
+            <!-- загрузка состояния через #fallback слот -->
+            <template #fallback>
+                Загрузка...
+            </template>
+        </Suspense>
     </div>
 </template>
 
